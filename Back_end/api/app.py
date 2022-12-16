@@ -4,7 +4,6 @@ Creating the variable 'app' an instance of flask
 """
 from flask import Flask, jsonify
 from api.views import app_views
-import os
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
