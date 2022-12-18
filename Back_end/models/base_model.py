@@ -14,6 +14,7 @@ def __init__(self, *args, **kwargs):
             created_at: creation date
             updated_at: updated date
         """
+
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
@@ -57,3 +58,4 @@ def __init__(self, *args, **kwargs):
         def delete(self):
             '''function to delete an object ''' 
             models.storage.delete(self)       
+
