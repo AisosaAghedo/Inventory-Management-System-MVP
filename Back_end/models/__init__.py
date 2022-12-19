@@ -8,3 +8,4 @@ from models.customer import Customer
 
 
 storage = DBStorage()
+storage.reload()
