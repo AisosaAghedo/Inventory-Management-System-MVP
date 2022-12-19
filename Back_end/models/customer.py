@@ -7,10 +7,10 @@ from sqlalchemy.orm import relationship
 class Customer(BaseModel, Base):
     """This is to create the table for the customers"""
     __tablename__ =  "customers"
-    Name = Column(String(120), nullable=False)
-    Id = Column(Integer,nullable=False)
-    Quantity = Column(Integer,nullable=False)
-    Product_Sn = Column(Integer, ForeignKey("products.Serial_number"))
-    product = relationship("Product", back_ref="customer")
+    name = Column(String(120), nullable=False)
+    id = Column(Integer,nullable=False, primary_key=True)
+    quantity = Column(Integer,nullable=False)
+    product_Sn = Column(Integer, ForeignKey("products.serial_number"))
+    product = relationship("Product", backref="customer")
 
 

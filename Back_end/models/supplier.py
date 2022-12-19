@@ -7,12 +7,12 @@ from sqlalchemy.orm import relationship
 class Supplier(BaseModel, Base):
     """This is to create a Table for the  suppliers"""
     __tablename__ = "suppliers"
-    Name = Column(String(70), nullable=False)
-    Id = Column(Integer, nullable=False)
-    Quantity = Column(Integer, nullable=False)
-    Price = Column(Integer, nullable=False)
-    Product_Sn = Column(Integer, ForeignKey("products.Serial_number"))
-    product = relationship("Product", back_ref="supplier", uselist=False)
+    name = Column(String(70), nullable=False)
+    id = Column(Integer, nullable=False, primary_key=True)
+    quantity = Column(Integer, nullable=False)
+    price = Column(Integer, nullable=False)
+    product_Sn = Column(Integer, ForeignKey("products.serial_number"))
+    product = relationship("Product", backref="supplier", uselist=False)
 
 
 
