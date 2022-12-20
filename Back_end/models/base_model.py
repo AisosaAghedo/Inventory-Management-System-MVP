@@ -37,7 +37,7 @@ class BaseModel:
         
     def __str__(self):
         '''returns a string of class name, and dictionary'''
-        return f"{self.__name__} {self.__dict__}"
+        return f"{self.__class__.__name__}"
 
     def __repr__(self):
         '''string representation function'''
@@ -55,6 +55,7 @@ class BaseModel:
         my_dict["__class_"] = str(type(self).__name__)
         my_dict["created_at"] = self.created_at.isoformat()
         my_dict["updated_at"] = self.updated_at.isoformat()
+        del my_dict['_sa_instance_state']
         return my_dict
 
     def delete(self):
