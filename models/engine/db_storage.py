@@ -4,18 +4,18 @@
 import models
 from models.base_model import BaseModel, Base
 from models.product import Product
-from models.customer import Customer
+from models.user import User
 from models.supplier import Supplier
 from os import getenv
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-classes = {"Product": Product, "Supplier": Supplier, "Customer": Customer}
+classes = {"Product": Product, "Supplier": Supplier, "User": User}
 
 
 class DBStorage:
-    """interaacts with the MySQL database"""
+    """interacts with the MySQL database"""
     __engine = None
     __session = None
 
@@ -73,13 +73,13 @@ class DBStorage:
         """call remove() method on the private session attribute"""
         self.__session.remove()
 
-    def get(self, cls, id=None, name=None):
+    def get(self, cls, id=None, username=None):
         """retrieves an object using its id or name"""
         if id is not None:
             obj = self.__session.query(cls).get(id)
             return obj
-        if name is not None:
-            obj = self.__session.query(cls).filter(cls.name == name).first()
+        if username is not None:
+            obj = self.__session.query(cls).filter(cls.username == username).first()
             return obj
 
     def count(self, cls=None):

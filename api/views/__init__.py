@@ -9,5 +9,4 @@ app_views = Blueprint("app_views", __name__, url_prefix="/api")
 
 from api.views.product import *
 from api.views.supplier import *
-from api.views.customer import *
 

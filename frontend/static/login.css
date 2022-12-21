@@ -1,0 +1,70 @@
+header{
+ background-color: #A555;
+ width: 100%;
+ height: 100px;
+ position: absolute;
+ top: 0;
+ padding-left: 0;
+ left:0;
+ margin-right: 0;
+ border-bottom: 10;
+}
+.logo{
+ height: 100px;
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ margin-left: 0;
+ left: 0;
+}
+form {
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 150px;
+  left: 15rem;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: rgba(170, 85, 85, 0.721);
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+footer{
+ position: absolute;
+ bottom: 0;
+ background-color: #2B3A55;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ left: 0;
+ height: 30px;
+ padding-top: 5px;
+ font-style: italic;
+ font-weight: lighter;
+}
