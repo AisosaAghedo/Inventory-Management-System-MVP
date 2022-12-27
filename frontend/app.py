@@ -38,7 +38,20 @@ def login_post():
     the user has the right credentials"""
     
     login_user(user)
-    return redirect(url_for('what ever you name our home page')
+    return redirect(url_for('product'))
+
+@app.route('/product', strict_slashes=False)
+def product():
+    """ returns the product page """
+    return(render_template('product.html'))
+
+
+@app.route('/add_product', strict_slashes=False)
+def add_product():
+    """  returns the add product page """
+    return(render_template('add_product.html'))
+
+
 
 
 if __name__ == "__main__":
