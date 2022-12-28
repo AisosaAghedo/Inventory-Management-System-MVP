@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADSOSA</title>
     
-    <link rel="stylesheet" href="static/product.css"/>
+    <link rel="stylesheet" href="static/styles/product.css"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/product.js')+ '?' + cache_id}}", type="text/javascript"></script>
 </head>
    
 <body> 
@@ -42,35 +44,34 @@
       </div>
       <div class="projects-section">
         <div class="projects-section-header">
-          <p>Products></p>
-          <p class="time">December, 12</p>
+          <p>Products</p>
+	  <p class="time">{{current_time}}</p>
         </div>
         <div class="projects-section-line">
           <div class="projects-status">
             <div class="item-status">
-              <span class="status-number">45</span>
+		    <span class="status-number">{{total_product}}</span>
               <span class="status-type">Total Products</span>
             </div>
             <div class="item-status">
-              <span class="status-number">24</span>
+		    <span class="status-number">{{total_category}}</span>
               <span class="status-type">Total Categories</span>
-            </div>
-            <div class="item-status">
-              <span class="status-number">62</span>
-              <span class="status-type">Total Quantity</span>
             </div>
           </div>
       </div>
+      <div name='filter'></div>
+      {% for product in products %}
       <div class="project-box-content-header">
         <div class="project-box">
-        <p class="box-content-header">Products</p>
-        <p class="box-content-subheader">Category</p>
-        <p class="box-content-subheader">Quantity</p>
+		<p class="box-content-header">{{product.name}}</p>
+		<p class="box-content-subheader">{{product.category}}</p>
+		<p class="box-content-subheader">{{product.quantity}}</p>
       </div>
       </div>
+      {% endfor %}
         <div class="project-box-footer">
           <button class="add-product" style="color: #ff942e;">
-            <a href="add_product.html">
+            <a href="/add_product">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
               <path d="M12 5v14M5 12h14" />
             </svg>

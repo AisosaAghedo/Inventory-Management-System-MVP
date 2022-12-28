@@ -91,3 +91,19 @@ def put_product(product_serial_number):
             setattr(product, key, value)
     storage.save()
     return make_response(jsonify(product.to_dict()), 200)
+
+@app_views.route('/products_search', methods=['POST'],
+           strict_slashes=False)
+def search_product():
+    """ searches for a product using query given"""
+    req = request.get_json()
+    products = []
+
+    if req is None:
+        abort(400, description='Not a json')
+    if req.get('query') is None:
+        abort(400, description='Missing query')
+    for product in storage.all(Product).values():
+        if (req['query'].lower() in product.name or req["query"].upper() in product.name):
+            products.append(product.to_dict())
+    return jsonify(products)
