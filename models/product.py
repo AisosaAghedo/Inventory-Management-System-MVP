@@ -11,4 +11,5 @@ class Product(BaseModel, Base):
     serial_number = Column(Integer,primary_key=True)
     category = Column(String(45), nullable=False)
     price =  Column(Integer, nullable=False)
+    quantity = Column(Integer, nullable=False)
     expiry_date = Column(DateTime, nullable=False)

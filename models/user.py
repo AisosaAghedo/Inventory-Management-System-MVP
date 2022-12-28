@@ -10,8 +10,8 @@ from uuid import uuid4
 class User(Base, UserMixin):
     """This is to create a table for the admin user"""
     __tablename__ = 'user'
-    id = Column(String(60), default=uuid4())
-    username = Column(String(50), primary_key=True)
+    id = Column(String(60), default=uuid4(), primary_key=True)
+    username = Column(String(50), nullable=False)
     password = Column(String(45), nullable=False)
 
     def __init__(self, *args, **kwargs):
