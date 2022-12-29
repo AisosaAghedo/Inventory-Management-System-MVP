@@ -13,7 +13,7 @@
 
   body {
     width: 100%;
-    height: 112vh;
+    height: 175vh;
     overflow: auto;
     margin: 0;
     font-family: "DM Sans", sans-serif;
@@ -57,7 +57,7 @@
 
   label{
     display: flex;
-    justify-content: ;
+    justify-content: center;
     background-color: grey;       
     border: 2px solid grey;      
     padding: 0px;    
