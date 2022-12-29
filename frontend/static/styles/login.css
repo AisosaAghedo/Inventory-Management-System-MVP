@@ -68,3 +68,13 @@ footer{
  font-style: italic;
  font-weight: lighter;
 }
+.error{
+	margin-left: 0;
+  color: white;
+  width: 20%;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top:3px;
+  background-color:  rgba(170, 85, 85, 0.721);
+  height: 55px;
+  }

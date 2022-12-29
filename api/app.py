@@ -5,8 +5,12 @@ Creating the variable 'app' an instance of flask
 from flask import Flask, jsonify
 from api.views import app_views
 import models
+from flask_cors import CORS
+
+
 app = Flask(__name__)
 app.register_blueprint(app_views)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.errorhandler(404)
 def error_404(exception):

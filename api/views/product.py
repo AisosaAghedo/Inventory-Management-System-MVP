@@ -100,10 +100,11 @@ def search_product():
     products = []
 
     if req is None:
-        abort(400, description='Not a json')
+        abort(400, description="Not a json")
     if req.get('query') is None:
-        abort(400, description='Missing query')
+        abort(400, description='No query was passed')
+
     for product in storage.all(Product).values():
-        if (req['query'].lower() in product.name or req["query"].upper() in product.name):
+        if req['query'].lower() in product.name.lower():
             products.append(product.to_dict())
     return jsonify(products)

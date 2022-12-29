@@ -2,19 +2,18 @@ $(document).ready(function(){
   let url = "http://127.0.0.1:"
   let input = {};
 
-  $(".search-input").change(function(){
+  $(".search-input").on('keyup', function(){
     let search = $("input.search-input").val();
     if (search.length < 1){
       return;
     }
 
     input.query = search;
-    checked = search;
     $.ajax({
 		dataType: "json",
       contentType: 'application/json',
   		type: "POST",
-  		url: url + "5000" + "/api/product_search",
+  		url: url + "5000" + "/api/products_search",
   		data: JSON.stringify(input),
   		success: function(response, stat){
 
