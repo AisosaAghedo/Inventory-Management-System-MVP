@@ -21,7 +21,6 @@ html, body{
 }
 body {
     font-family: "DM Sans", sans-serif;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     background-color: var(--app-container);
@@ -99,7 +98,7 @@ body {
     background-color: var(--projects-section);
     border-radius: 32px;
     padding: 32px 32px 0 32px;
-    overflow: hidden;
+    overflow: visible;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -427,4 +426,6 @@ body {
     .project-boxes.jsListView .project-box > * {
       margin-right: 10px;
     }
-}
+input[name=update]{
+	margin-right: 50px;
+    }

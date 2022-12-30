@@ -64,13 +64,18 @@
       <div name='filter'></div>
       {% for product in products %}
       <div class="project-box-content-header">
-        <div class="project-box">
+	      <div class="project-box" product_sn='{{product.serial_number}}'>
 		<p class="box-content-header">{{product.name}}</p>
 		<p class="box-content-subheader">{{product.category}}</p>
 		<p class="box-content-subheader">{{product.quantity}}</p>
 		<p class="box-content-subheader">{{expiry_date}}</p>
+		<input name='delete' type='button' value="Delete">
+		<input name='update' type='button' value="update">
+
       </div>
       </div>
+      
+
       {% endfor %}
         <div class="project-box-footer">
           <button class="add-product" style="color: #ff942e;">
