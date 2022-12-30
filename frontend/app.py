@@ -41,12 +41,12 @@ def login_post():
     the user has the right credentials"""
     
     login_user(user)
-    return redirect(url_for('product'))
+    return redirect(url_for('products'))
 
 
 @app.route('/products', strict_slashes=False)
 @login_required
-def product():
+def products():
     """ to ensure just people with password can access the product page"""
     current_time = datetime.utcnow().strftime("%d/%m/%Y")
     products = list(storage.all(Product).values())
@@ -55,8 +55,10 @@ def product():
         if product.category not in total_category:
             total_category.append(product.category)
 
+        expiry_date =  product.expiry_date.strftime("%d/%m/%Y")
+
     return render_template('product.html', products=products, total_category=len(total_category), current_time=current_time,
-            total_product=len(products), cache_id=str(uuid4()))
+            total_product=len(products), cache_id=str(uuid4()), expiry_date=expiry_date )
 
 @app.route('/add_product', strict_slashes=False)
 @login_required
