@@ -51,7 +51,6 @@ def post_product():
     """
     if not request.get_json():
         abort(400, description="Not a JSON")
-
     if 'name' not in request.get_json():
         abort(400, description="Missing name")
     if 'serial_number' not in request.get_json():
@@ -62,6 +61,8 @@ def post_product():
         abort(400, description="Missing price ")
     if 'expiry_date' not in request.get_json():
         abort(400, description="Missing expiry_date")
+    if request.get_json().get('quantity') is None:
+        abort(400, description="Missing quantity")
 
 
     data = request.get_json()
@@ -104,6 +105,6 @@ def search_product():
     if req.get('query') is None:
         abort(400, description='Missing query')
     for product in storage.all(Product).values():
-        if (req['query'].lower() in product.name or req["query"].upper() in product.name):
+        if (req['query'].lower() in product.name.lower()):
             products.append(product.to_dict())
     return jsonify(products)

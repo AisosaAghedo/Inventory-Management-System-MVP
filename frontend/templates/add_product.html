@@ -3,32 +3,29 @@
     <head> 
         <title>ADSOSA</title>
         <link rel="stylesheet" href="static/styles/add_product.css"/>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="{{ url_for('static', filename='scripts/add_product.js')+ '?' + cache_id}}", type="text/javascript"></script>
     </head>
-
     <body>
-        <div class="form_page_header">
-            <img src="../static/images/logo.png" img alt="Page_logo"/>
-            <span>ADSOSA</span>
-        </div>
-
-        <div class="app-container">
-        <form action="1-index.html" method="post">
-            <label for="Product Name">Enter Product Name:</label>
-            <p><input type = "text" placeholder="product name" required></p>
-            <label for="Product Serial Number">Enter Product Serial Number:</label>
-            <p><input type = "text" placeholder="enter serial number" required></p>
-            <label for="Product Category">Enter Product Category:</label>
-            <p><input type = "text" placeholder="enter category" required></p>
-            <label for="expiry date">Enter Expiry Date:</label>
-            <p><input type = "date" placeholder="enter expiry date" required></p>
-            <label for="timestamp">Enter Timestamp:</label>
-            <p><input type = "datetime-local" placeholder="timestamp" required></p>
-            <label for="timestamp">Enter Product Quantity:</label>
-            <p><input type = "number" placeholder="enter quantity" required></p>
-            <label for="price">Enter Unit Price:</label>
-            <p><input type = "number" placeholder="enter price" required></p>
-            <button>ADD PRODUCT</button> 
-        </form>
-    </div>
+	    <header>
+		    <img src="static/images/logo.png" alt="" class="logo">
+	    </header>
+	    <form>
+		    <div class="container">
+			    <label for="Product Name">Enter Product Name:</label>
+			    <p><input type = "text" name='name' placeholder="product name" required></p>
+			    <label for="Product Serial Number">Enter Product Serial Number:</label>
+			    <p><input type = "text" name='serial_number' placeholder="enter serial number" required></p>
+			    <label for="Product Category">Enter Product Category:</label>
+			    <p><input type = "text" name='category' placeholder="enter category" required></p>
+			    <label for="expiry date">Enter Expiry Date:</label>
+			    <p><input type = "date" name='expiry_date' placeholder="enter expiry date" required></p>
+			    <label for="quantity">Enter Product Quantity:</label>
+			    <p><input type = "number" name='quantity' placeholder="enter quantity" required></p>
+			    <label for="price">Enter Unit Price:</label>
+			    <p><input type = "number" name='price' placeholder="enter price" required></p>
+			    <p><input type = "button" name='submit'  value="Add product"  required></p>
+		    </div>
+	    </form>
     </body>
 </html>
