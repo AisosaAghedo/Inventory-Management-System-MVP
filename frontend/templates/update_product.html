@@ -9,6 +9,7 @@
     <body>
             <header>
                     <img src="{{ url_for('static', filename='images/logo.png')+ '?' + cache_id}}" alt="" class="logo">
+		     <a id="logout" href="{{url_for('logout')}}">Logout</a>
             </header>
             <form>
                     <div class="container" product_sn="{{product_sn}}">

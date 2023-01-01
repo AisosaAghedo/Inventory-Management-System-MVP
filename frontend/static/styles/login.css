@@ -20,7 +20,7 @@ header{
 form {
   border: 3px solid #f1f1f1;
   position: absolute;
-  top: 150px;
+  top: 155px;
   left: 15rem;
 }
 
@@ -67,4 +67,19 @@ footer{
  padding-top: 5px;
  font-style: italic;
  font-weight: lighter;
+}
+.error{
+	margin-left: 0;
+  color: white;
+  width: 20%;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top:5px;
+  background-color:   #2B3A55;
+  height: 55px;
+  margin-top: 10px;
+}
+#contained{
+  padding-left: 400px;
+  padding-top: 80px;
 }
