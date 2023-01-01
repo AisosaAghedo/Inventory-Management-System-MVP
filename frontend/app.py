@@ -66,6 +66,13 @@ def add_product():
     """ to ensure just people with password can access the add product page"""
     return render_template('add_product.html', cache_id=str(uuid4()))
 
+@app.route('/update/<product_sn>', strict_slashes=False)
+@login_required
+def update_product(product_sn):
+    """ update the products"""
+    return render_template('update_product.html', cache_id=str(uuid4()), product_sn=product_sn)
+
+
 @app.route('/logout')
 @login_required
 def logout():

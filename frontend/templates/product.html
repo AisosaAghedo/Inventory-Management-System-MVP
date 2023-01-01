@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="static/styles/product.css"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{{ url_for('static', filename='scripts/product.js')+ '?' + cache_id}}", type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='scripts/product_delete.js')+ '?' + cache_id}}", type="text/javascript"></script>
 </head>
    
 <body> 
@@ -69,8 +70,8 @@
 		<p class="box-content-subheader">{{product.category}}</p>
 		<p class="box-content-subheader">{{product.quantity}}</p>
 		<p class="box-content-subheader">{{expiry_date}}</p>
-		<input name='delete' type='button' value="Delete">
-		<input name='update' type='button' value="update">
+		<input class='delete' type='button' value="Delete">
+		<input class='update' type='button' value="update">
 
       </div>
       </div>
