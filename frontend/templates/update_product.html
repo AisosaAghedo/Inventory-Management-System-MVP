@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ADSOSA</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/add_product.css')+ '?' + cache_id}}"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="{{ url_for('static', filename='scripts/product_update.js')+ '?' + cache_id}}", type="text/javascript"></script>
+    </head>
+    <body>
+            <header>
+                    <img src="{{ url_for('static', filename='images/logo.png')+ '?' + cache_id}}" alt="" class="logo">
+		     <a id="logout" href="{{url_for('logout')}}">Logout</a>
+            </header>
+            <form>
+                    <div class="container" product_sn="{{product_sn}}">
+                            <label for="quantity">Enter Product Quantity:</label>
+                            <p><input type = "number" name='quantity' placeholder="enter quantity" required></p>
+                            <label for="price">Enter Unit Price:</label>
+                            <p><input type = "number" name='price' placeholder="enter price" required></p>
+                            <p><input type = "button" name='submit'  value="Update product"  required></p>
+                    </div>
+            </form>
+    </body>
+</html>
+
