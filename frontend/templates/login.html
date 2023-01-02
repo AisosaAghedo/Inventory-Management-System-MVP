@@ -11,6 +11,14 @@
  <header>
    <img src="static/images/logo.png" alt="" class="logo">
  </header>
+ <div id="contained">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+    	<div class="error">
+        {{ messages[0] }}
+    	</div>
+{% endif %}
+{% endwith %}
  <form action="" method="post">
 
   <div class="container">

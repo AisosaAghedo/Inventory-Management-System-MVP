@@ -1,3 +1,4 @@
+
 header{
  background-color: #A555;
  width: 100%;
@@ -8,6 +9,9 @@ header{
  left:0;
  margin-right: 0;
  border-bottom: 10;
+}
+#logout {
+	margin-left: 1000px;
 }
 .logo{
  height: 100px;

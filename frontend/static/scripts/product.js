@@ -41,5 +41,11 @@ $(document).ready(function(){
        }
     });
 });
+	$(".update").click(function(){
+		let product_sn = $(this).parent(".project-box").attr("product_sn");
+		window.location.href = `update/${product_sn}`
+	});
+
+
 
 });

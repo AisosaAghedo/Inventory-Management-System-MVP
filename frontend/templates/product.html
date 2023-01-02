@@ -9,16 +9,17 @@
     <link rel="stylesheet" href="static/styles/product.css"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{{ url_for('static', filename='scripts/product.js')+ '?' + cache_id}}", type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='scripts/product_delete.js')+ '?' + cache_id}}", type="text/javascript"></script>
 </head>
    
 <body> 
+	 <header>
+                 <a id="logout" href="{{url_for('logout')}}">Logout</a>
+         </header>
     <div class="app-container">
       <div class="app-header">
         <div class="app-header-left">
           <span class="app-icon"></span>
-	 <!-- <header>
-   <img src="static/images/logo.png" alt="" class="logo">
-	 </header>-->
           <div class="search-wrapper">
             <input class="search-input" type="text" placeholder="Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
@@ -69,8 +70,8 @@
 		<p class="box-content-subheader">{{product.category}}</p>
 		<p class="box-content-subheader">{{product.quantity}}</p>
 		<p class="box-content-subheader">{{expiry_date}}</p>
-		<input name='delete' type='button' value="Delete">
-		<input name='update' type='button' value="update">
+		<input class='delete' type='button' value="Delete">
+		<input class='update' type='button' value="update">
 
       </div>
       </div>
