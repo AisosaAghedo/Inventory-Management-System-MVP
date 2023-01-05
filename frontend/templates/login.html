@@ -9,7 +9,8 @@
 </head>
 <body>
  <header>
-   <img src="static/images/logo.png" alt="" class="logo">
+   <img src="{{ url_for('static', filename='images/logo.png')}}" alt="" class="logo">
+
  </header>
  <div id="contained">
 	{% with messages = get_flashed_messages() %}

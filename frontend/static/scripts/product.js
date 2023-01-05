@@ -25,11 +25,13 @@ $(document).ready(function(){
         for (let res of response){
           $("div[name=filter]").append(`
 	  <div class="project-box-content-header">
-        <div class="project-box">
+        <div class="project-box"  product_sn='${res.serial_number}'>
                 <p class="box-content-header">${res.name}</p>
                 <p class="box-content-subheader">${res.category}</p>
                 <p class="box-content-subheader">${res.quantity}</p>
 		<p class="box-content-subheader">${res.expiry_date}</p>
+		<input class='delete' type='button' value="Delete">
+                <input class='update' type='button' value="update">
       </div>
       </div>`);
         }
