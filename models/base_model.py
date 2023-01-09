@@ -8,7 +8,7 @@ from sqlalchemy import String, DateTime, Column
 Base = declarative_base()
 
 class BaseModel:
-    """ The basemode class that initializies the classs """
+    """ The basemodel class that initializies the classs """
     created_at = Column(DateTime(), nullable=False, default=datetime.utcnow())
     updated_at = Column(DateTime(), nullable=False, default=datetime.utcnow())
 
@@ -36,21 +36,21 @@ class BaseModel:
                 self.created_at = self.updated_at = datetime.now()
         
     def __str__(self):
-        '''returns a string of class name, and dictionary'''
+        """returns a string of class name, and dictionary"""
         return f"{self.__class__.__name__}"
 
     def __repr__(self):
-        '''string representation function'''
+        """ string representation function"""
         return self.__str__()
 
     def save(self):
-        '''this to update public instance attribute(updated_at) to current'''
+        """ this to update public instance attribute(updated_at) to the current"""
         self.updated_at = datetime.now()
         models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):
-        '''this creates a dictionary of class and what they return''' 
+        """ this creates a dictionary of class and what they return """
         my_dict = dict(self.__dict__)
         my_dict["__class_"] = str(type(self).__name__)
         my_dict["created_at"] = self.created_at.isoformat()
@@ -59,6 +59,6 @@ class BaseModel:
         return my_dict
 
     def delete(self):
-        '''function to delete an object ''' 
+        """ function to delete an object """
         models.storage.delete(self)       
 

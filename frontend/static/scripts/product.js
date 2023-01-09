@@ -63,6 +63,7 @@ $(document).ready(function () {
       }
     });
   });
+
   /* enables updating when a search query is not made */
 	 $('.update').click(function () {
     const product_sn = $(this).parent('.project-box').attr('product_sn');

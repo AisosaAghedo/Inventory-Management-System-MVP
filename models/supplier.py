@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the Suppliers class"""
+"""This is the Suppliers class for models """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship

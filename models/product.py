@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the product class"""
+"""This is the product class for models"""
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.orm import relationship
