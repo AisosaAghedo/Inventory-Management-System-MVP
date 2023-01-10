@@ -20,10 +20,15 @@ def load_user(user_id):
     """ """
     return storage.get(User, user_id)
 
+@app.route('/signup', strict_slashes=False)
+def signup():
+    """ returns the signup page"""
+    return render_template('sign_up.html', cache_id=str(uuid4()))
+
 @app.route('/login', strict_slashes=False)
 def login():
     """ returns the login page"""
-    return(render_template('login.html'))
+    return render_template('login.html', cache_id=str(uuid4()))
 
 @app.route('/login', methods=['POST'], strict_slashes=False)
 def login_post():
@@ -35,11 +40,12 @@ def login_post():
     user = storage.get(User, None, username)
     if not user or not user.confirm_pwd(password):
         flash('Please check your login details and try again.')
+        print("failed")
         return redirect(url_for('login'))
     
     """if the above check passes, then we know
     the user has the right credentials"""
-    
+    print(user)
     login_user(user)
     return redirect(url_for('products'))
 
@@ -51,14 +57,16 @@ def products():
     current_time = datetime.utcnow().strftime("%d/%m/%Y")
     products = list(storage.all(Product).values())
     total_category = []
+    expiry_date = None
     for product in products:
         if product.category not in total_category:
             total_category.append(product.category)
 
-        expiry_date =  product.expiry_date.strftime("%d/%m/%Y")
+        if products:
+            expiry_date =  product.expiry_date.strftime("%d/%m/%Y")
 
     return render_template('product.html', products=products, total_category=len(total_category), current_time=current_time,
-            total_product=len(products), cache_id=str(uuid4()), expiry_date=expiry_date )
+            total_product=len(products), cache_id=str(uuid4()), expiry_date=expiry_date, current_user=current_user )
 
 @app.route('/add_product', strict_slashes=False)
 @login_required
@@ -70,7 +78,7 @@ def add_product():
 @login_required
 def update_product(product_sn):
     """ update the products"""
-    return render_template('update_product.html', cache_id=str(uuid4()), product_sn=product_sn)
+    return render_template('update_product.html', cache_id=str(uuid4()), product_sn=product_sn, current_user=current_user)
 
 
 @app.route('/logout')

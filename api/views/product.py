@@ -44,8 +44,8 @@ def delete_product(product_serial_number):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/products', methods=['POST'], strict_slashes=False)
-def post_product():
+@app_views.route('users/<user_id>/products', methods=['POST'], strict_slashes=False)
+def post_product(user_id):
     """
     Creates a new product
     """
@@ -54,7 +54,7 @@ def post_product():
         abort(400, description="Not a JSON")
     if 'name' not in data:
         abort(400, description="Missing name")
-    if 'serial_number' not in request:
+    if 'serial_number' not in data:
         abort(400, description="Missing serial_number")
     if 'category' not in data:
         abort(400, description="Missing category")
@@ -64,8 +64,8 @@ def post_product():
         abort(400, description="Missing expiry_date")
     if 'quantity' not in data:
         abort(400, description="Missing quantity")
-
-
+    print("i am id" + user_id)
+    data["user_id"] = user_id
     instance = Product(**data)
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)

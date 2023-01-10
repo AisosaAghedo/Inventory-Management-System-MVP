@@ -3,11 +3,12 @@
     <head> 
         <title>ADSOSA</title>
         <link rel="stylesheet" href="static/styles/add_product.css"/>
+	<link rel='shortcut icon' href="{{ url_for('static', filename='images/logo.png')+ '?' + cache_id}}"/>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="{{ url_for('static', filename='scripts/add_product.js')+ '?' + cache_id}}", type="text/javascript"></script>
     </head>
     <body>
-	    <header>
+	    <header user_id="{{current_user.id}}">
 		    <img src="{{ url_for('static', filename='images/logo.png')+ '?' + cache_id}}" alt="" class="logo">
 		     <a id="logout" href="{{url_for('logout')}}">Logout</a>
 

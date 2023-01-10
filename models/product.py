@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the product class for models"""
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, Integer, DateTime
+from sqlalchemy import Column, String, Integer, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
 class Product(BaseModel, Base):
@@ -13,3 +13,4 @@ class Product(BaseModel, Base):
     price =  Column(Integer, nullable=False)
     quantity = Column(Integer, nullable=False)
     expiry_date = Column(DateTime, nullable=False)
+    user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
