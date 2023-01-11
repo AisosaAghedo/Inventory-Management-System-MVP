@@ -1,3 +1,4 @@
+
 ## ADSOSA Inventory Management System
 
 This project was designed to provide a system to keep track of stocks that are supplied in order to properly monitor goods supplied by suppliers, monitor expiry date of products and immediately know goods that are  depleted and restock.

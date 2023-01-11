@@ -2,37 +2,38 @@
 <html lang="en">
 <head>
  <link rel="stylesheet" href="static/styles/login.css">
+ <link rel='shortcut icon' href="{{ url_for('static', filename='images/logo.png')+ '?' + cache_id}}"/>
  <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>ADSOSA</title>
 </head>
 <body>
- <header>
-   <img src="static/images/logo.png" alt="" class="logo">
- </header>
- <div id="contained">
-	{% with messages = get_flashed_messages() %}
-	{% if messages %}
-    	<div class="error">
+<div class="loginform">
+    <form action="" method="post" class="form">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="error">
         {{ messages[0] }}
-    	</div>
-{% endif %}
-{% endwith %}
- <form action="" method="post">
+        </div>
+        {% endif %}
+        {% endwith %}
+        <h1 class="title">Login</h1>
+    <div class="Container">
+        <input type="text" class="input" placeholder="Enter username" name="username" Required>
+        <label for="" class="label">Username</label>
+      </div>
 
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+      <div class="Container">
+        <input type="password" class="input" placeholder="Enter password" name="password"Required>
+        <label for="" class="label">Password</label>
+      </div>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-
-    <button type="submit">Login</button>
-  </div>
+      <input type="submit" class="submitBtn" value="Login">
+    <span id="unregistered">Not yet registered? Then <a href="/signup">Sign up!</a></span>
 </form>
-<footer> 
-   <b>Adsosa Inventory</b>
-  </footer>
+</div>
+ 
 </body>
 </html>
+

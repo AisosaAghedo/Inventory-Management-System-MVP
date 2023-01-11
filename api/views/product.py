@@ -44,28 +44,28 @@ def delete_product(product_serial_number):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/products', methods=['POST'], strict_slashes=False)
-def post_product():
+@app_views.route('users/<user_id>/products', methods=['POST'], strict_slashes=False)
+def post_product(user_id):
     """
-    Creates a product
+    Creates a new product
     """
-    if not request.get_json():
+    data =  request.get_json()
+    if not data:
         abort(400, description="Not a JSON")
-    if 'name' not in request.get_json():
+    if 'name' not in data:
         abort(400, description="Missing name")
-    if 'serial_number' not in request.get_json():
+    if 'serial_number' not in data:
         abort(400, description="Missing serial_number")
-    if 'category' not in request.get_json():
+    if 'category' not in data:
         abort(400, description="Missing category")
-    if 'price' not in request.get_json():
+    if 'price' not in data:
         abort(400, description="Missing price ")
-    if 'expiry_date' not in request.get_json():
+    if 'expiry_date' not in data:
         abort(400, description="Missing expiry_date")
-    if request.get_json().get('quantity') is None:
+    if 'quantity' not in data:
         abort(400, description="Missing quantity")
-
-
-    data = request.get_json()
+    print("i am id" + user_id)
+    data["user_id"] = user_id
     instance = Product(**data)
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)
@@ -74,7 +74,7 @@ def post_product():
 @app_views.route('/products/<product_serial_number>', methods=['PUT'], strict_slashes=False)
 def put_product(product_serial_number):
     """
-    Updates a product
+    This function Updates the quantity and price of an existing product
     """
     product = storage.get(Product, product_serial_number)
 
@@ -96,7 +96,7 @@ def put_product(product_serial_number):
 @app_views.route('/products_search', methods=['POST'],
            strict_slashes=False)
 def search_product():
-    """ searches for a product using query given"""
+    """This function is for searching for a product using query given"""
     req = request.get_json()
     products = []
 

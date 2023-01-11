@@ -315,7 +315,8 @@ button, a {
     display: flex;
     justify-content: space-between;
     padding-top: 16px;
-    position: relative;
+    position: fixed;
+    top: 28rem;
   }
   .project-box-footer:after {
     content: "";
@@ -427,4 +428,3 @@ button, a {
     .project-boxes.jsListView .project-box > * {
       margin-right: 10px;
     }
-

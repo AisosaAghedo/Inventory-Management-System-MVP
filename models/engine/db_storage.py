@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the definition of the database class """
+"""This is the database class """
 
 import models
 from models.base_model import BaseModel, Base
@@ -70,7 +70,7 @@ class DBStorage:
         self.__session = Session
 
     def close(self):
-        """call remove() method on the private session attribute"""
+        """removes all changes"""
         self.__session.remove()
 
     def get(self, cls, id=None, username=None):

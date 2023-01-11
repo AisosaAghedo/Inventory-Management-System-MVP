@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 	let inputs = {}
+	let user_id = $("header").attr("user_id");
 	let url = "http://127.0.0.1"
 
 
@@ -27,7 +28,7 @@ $(document).ready(function(){
 		    	'Content-Type':'application/json'
 	    	},
 
-	    	url: url + ":5000/api/products",
+	    	url: url + `:5000/api/users/${user_id}/products`,
 	    	data: JSON.stringify(inputs),
 	    	success: function(resp, stat){
 		    window.location.replace(url + ":5001/products");
