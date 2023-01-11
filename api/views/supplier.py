@@ -46,28 +46,30 @@ def del_supplier(supplier_id):
 def create_supplier(product_serial_number):
     """ creates a supplier """
     product = storage.get(Product, product_serial_number)
+    data = request.get_json()
     if not product:
         abort(404)
-    if not request.get_json():
+    if not data:
         abort(400, description="Not a JSON")
-    if 'name' not in request.get_json():
+    if 'name' not in data:
         abort(400, description="Missing name")
-    if 'id' not in request.get_json():
+    if 'id' not in data:
         abort(400, description="Missing id")
-    if 'quantity' not in request.get_json():
+    if 'quantity' not in data:
         abort(400, description="Missing quantity of product")
-    if 'price' not in request.get_json():
+    if 'price' not in data:
         abort(400, description="Missing price of product")
 
-    data = request.get_json()
     data['product_Sn'] = int(product_serial_number)
     instance = Supplier(**data)
     instance.save()
 
     return make_response(jsonify(instance.to_dict()), 201)
+
+
 @app_views.route('/suppliers/<supplier_id>',methods=['PUT'], strict_slashes=False)
 def update_supplier(supplier_id):
-    """ update the supplier information"""
+    """ updates the supplier information"""
     supplier = storage.get(Supplier, supplier_id)
     if not supplier:
         abort(404)

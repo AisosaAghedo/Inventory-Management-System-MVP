@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 """This is the user class"""
-from models.base_model import Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from flask_login import UserMixin
 import models
 import hashlib
 from uuid import uuid4
+from sqlalchemy.orm import relationship
 
-class User(Base, UserMixin):
+class User(BaseModel, Base, UserMixin):
     """This is to create a table for the admin user"""
-    __tablename__ = 'user'
+    __tablename__ = 'users'
     id = Column(String(60), default=uuid4(), primary_key=True)
     username = Column(String(50), nullable=False)
     password = Column(String(45), nullable=False)
+    products = relationship("Product", backref="user", cascade = "all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """this function initializes user"""

@@ -7,6 +7,7 @@
     <title>ADSOSA</title>
     
     <link rel="stylesheet" href="../static/styles/product.css"/>
+    <link rel='shortcut icon' href="{{ url_for('static', filename='images/logo.png')+ '?' + cache_id}}"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{{ url_for('static', filename='scripts/product.js')+ '?' + cache_id}}", type="text/javascript"></script>
     <script src="{{ url_for('static', filename='scripts/product_delete.js')+ '?' + cache_id}}", type="text/javascript"></script>
@@ -46,7 +47,7 @@
           </div>
       </div>
       <div name='filter'></div>
-      {% for product in products %}
+      {% for product in current_user.products %}
       <div class="project-box-content-header">
 	      <div class="project-box" product_sn='{{product.serial_number}}'>
 		<p class="box-content-header">{{product.name}}</p>

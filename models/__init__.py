@@ -7,6 +7,6 @@ from models.product import Product
 from models.supplier import Supplier
 from models.user import User
 
-
+""" creating a variable to store the DBstorage method in"""
 storage = DBStorage()
 storage.reload()
