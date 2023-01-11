@@ -63,6 +63,8 @@ This is the update page, it includes features to update existing product informa
 
 Contributions are always welcome! Please read the [contribution guidelines](https://github.com/matiassingers/awesome-readme/blob/master/contributing.md) first.
 
+***
+
 ## LICENSING
 PUBLIC DOMAIN
 
