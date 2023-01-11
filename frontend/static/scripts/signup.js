@@ -8,7 +8,6 @@ let link = "http://127.0.0.1"
 
 
   $(".submitBtn").click(function(){
-	  console.log('of course i was clicked')
 	  let username = $("input[name=username]").val();
 	  let password = $("input[name=password]").val();
 	  let confirm_password = $("input[name=confirm_password]").val();
@@ -19,7 +18,6 @@ let link = "http://127.0.0.1"
 		  if (list_inputs[i].length > 1){
 			  inputs[str_inputs[i]] = list_inputs[i];
 		  }
-		  console.log(inputs)
 	  }
 	  $.ajax({
 		  dataType: "json",
