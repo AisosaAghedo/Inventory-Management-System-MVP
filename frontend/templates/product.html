@@ -50,10 +50,10 @@
       {% for product in current_user.products %}
       <div class="project-box-content-header">
 	      <div class="project-box" product_sn='{{product.serial_number}}'>
-		<p class="box-content-header">{{product.name}}</p>
-		<p class="box-content-subheader">{{product.category}}</p>
-		<p class="box-content-subheader">{{product.quantity}}</p>
-		<p class="box-content-subheader">{{expiry_date}}</p>
+		<p class="box-content-header">Name: {{product.name}}</p>
+		<p class="box-content-subheader"><strong>Category:</strong> {{product.category}}</p>
+		<p class="box-content-subheader"><strong>Quantity:</strong> {{product.quantity}}</p>
+		<p class="box-content-subheader"><strong>Expiry date:</strong>{{expiry_date}}</p>
 		<input class='delete' type='button' value="Delete">
 		<input class='update' type='button' value="update">
 
